@@ -147,7 +147,7 @@ add_logos <- function(doc_prefix = NULL) {
   ## save as temp file
   tmp <- tempfile(fileext = ".tex")
   writeLines(x, tmp)
-  tmp
+  invisible(tmp)
 }
 
 
