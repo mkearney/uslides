@@ -1,0 +1,4 @@
+name: uslides_document (beamer presentation)
+description: >
+  Template for uslides presentation.
+create_dir: false
