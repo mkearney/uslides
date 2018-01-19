@@ -1,7 +1,7 @@
 #' uslides_document
 #'
 #' Document template for uslide beamer presentation.
-#'
+#' @inheritParams rmarkdown::beamer_presentation
 #' @export
 uslides_document <- function(toc = FALSE,
                              incremental = FALSE,

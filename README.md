@@ -15,14 +15,18 @@ Example
 
 See an [example Rmd file](tools/readme/example.Rmd) and its [pdf output](tools/readme/example.pdf). Screen shots of the example are inserted below.
 
-The title slide.
+### Some of the rmarkdown code.
+
+![](tools/readme/ss4.png)
+
+### The title slide.
 
 ![](tools/readme/ss1.png)
 
-A slide with bullet points.
+### A slide with bullet points.
 
 ![](tools/readme/ss2.png)
 
-A slide with R code and output.
+### A slide with R code and output.
 
 ![](tools/readme/ss3.png)
