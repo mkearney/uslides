@@ -3,23 +3,34 @@
 \usepackage{fontspec}
 \setmainfont{Roboto Condensed}
 \setsansfont{Roboto Condensed}
-\setmonofont[Scale=MatchLowercase]{Consolas}
+\setmonofont[Scale=MatchLowercase]{Inconsolata}
 \usepackage[export]{adjustbox}
 \usepackage{tikz}
-\titlegraphic{\tikz[overlay,remember picture]\node at (0,-1) {\includegraphics[width=1.05\paperwidth]{BANNER}};}
-%\logo{\vspace*{-3mm}\makebox[.99\paperwidth]{\includegraphics[height=.8cm,keepaspectratio]{BOTTOMLEFT}\hfill\includegraphics[height=.8cm,keepaspectratio]{BOTTOMRIGHT}}}
-\logo{\makebox[.99\paperwidth]{\includegraphics[height=.8cm,keepaspectratio]{BOTTOMLEFT}\hfill\includegraphics[height=.8cm,keepaspectratio]{BOTTOMRIGHT}}}
-\setbeamerfont{title}{series=\bfseries,parent=structure,size=\LARGE}
-\setbeamerfont{subtitle}{series=\bfseries,parent=structure,size=\Large}
-\setbeamercolor{title}{fg=black}
-\setbeamercolor{subtitle}{fg=black}
+\titlegraphic{\tikz[overlay,remember picture]\node at (0,-1.1) {\includegraphics[width=\paperwidth]{BANNER}};}
+\logo{\vspace*{-3mm}\makebox[.99\paperwidth]{\includegraphics[height=.8cm,keepaspectratio]{BOTTOMLEFT}\hfill\includegraphics[height=.8cm,keepaspectratio]{BOTTOMRIGHT}}}
+%\logo{\makebox[.99\paperwidth]{\includegraphics[height=.8cm,keepaspectratio]{BOTTOMLEFT}\hfill\includegraphics[height=.8cm,keepaspectratio]{BOTTOMRIGHT}}}
+
 \setbeamertemplate{frametitle}{\vspace{.75em}\color{black}\bfseries\insertframetitle}
 \setbeamertemplate{navigation symbols}{}
 \setbeamertemplate{itemize item}{\color{black}\scriptsize{$\bullet$}}
 \setbeamertemplate{itemize subitem}{\color{black}\tiny{$\bullet$}}
 \setbeamertemplate{background}{\tikz[overlay,remember picture]\node[opacity=0.05]at (current page.center){\includegraphics[width=10cm]{BACKGROUND}};}
-\usepackage{listings}
+
+\setbeamerfont{title}{series=\bfseries,parent=structure,size=\LARGE}
+\setbeamerfont{subtitle}{series=\bfseries,parent=structure,size=\Large}
+\setbeamerfont{titlelike}{series=\bfseries,size=\Huge}
+
+\setbeamercolor{title}{fg=black}
+\setbeamercolor{subtitle}{fg=black}
 \setbeamercolor{normal text}{fg=black}
 \setbeamercolor{titlelike}{fg=black}
-\setbeamerfont{titlelike}{series=\bfseries,size=\Huge}
 \setbeamercolor{structure}{fg=black}
+
+\usepackage{listings}
+
+\AtBeginPart{}
+\AtBeginSection{}
+\AtBeginSubsection{}
+\AtBeginSubsubsection{}
+\setlength{\emergencystretch}{0em}
+\setlength{\parskip}{0pt}

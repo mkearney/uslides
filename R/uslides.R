@@ -15,17 +15,21 @@ uslides_document <- function() {
   doc_prebody <- file.path(
     template_path, "resources", "uslides_document_prebody.tex"
   )
-  ## create css file
+  doc_afterbody <- file.path(
+    template_path, "resources", "uslides_document_afterbody.tex"
+  )
   ## call the base html_document function
   rmarkdown::beamer_presentation(
     latex_engine = "xelatex",
     df_print = "tibble",
+    fig_crop = FALSE,
     fig_width = 9,
     fig_height = 6,
     highlight = "haddock",
     includes = rmarkdown::includes(
       in_header = doc_prefix,
-      before_body = doc_prebody
+      before_body = doc_prebody,
+      after_body = doc_afterbody
     )
   )
 }

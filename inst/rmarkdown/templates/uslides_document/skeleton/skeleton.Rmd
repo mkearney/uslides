@@ -16,7 +16,7 @@ knitr::knit_hooks$set(mysize = function(before, options, envir) {
     return(options$size)
 })
 knitr::opts_chunk$set(
-  results = "asis", collapse = TRUE, mysize = TRUE, size = "\\small"
+  results = "asis", collapse = TRUE, mysize = TRUE, size = "\\scriptsize"
 )
 ```
 
