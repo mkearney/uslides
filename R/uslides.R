@@ -24,6 +24,9 @@ uslides_document <- function(toc = FALSE,
   doc_afterbody <- file.path(
     template_path, "resources", "uslides_document_afterbody.tex"
   )
+  doc_prebody <- file.path(
+    template_path, "resources", "uslides_document_beforebody.tex"
+  )
   ## call the base html_document function
   rmarkdown::beamer_presentation(
     toc = toc,
@@ -40,6 +43,7 @@ uslides_document <- function(toc = FALSE,
     keep_tex = keep_tex,
     includes = rmarkdown::includes(
       in_header = doc_prefix,
+      before_body = doc_prebody,
       after_body = doc_afterbody
     ),
     pandoc_args = pandoc_args
