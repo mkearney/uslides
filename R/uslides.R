@@ -19,10 +19,9 @@ uslides_document <- function() {
   ## call the base html_document function
   rmarkdown::beamer_presentation(
     latex_engine = "xelatex",
-    toc = FALSE,
-    fig_width = 10,
-    fig_height = 7,
-    theme = "default",
+    df_print = "tibble",
+    fig_width = 9,
+    fig_height = 6,
     highlight = "haddock",
     includes = rmarkdown::includes(
       in_header = doc_prefix,
