@@ -1,14 +1,15 @@
 %\usepackage[T1]{fontenc}
 %\usepackage{textcomp}
-\usepackage{fontspec}
+%\usepackage{fontspec}
 \setmainfont{Roboto Condensed}
 \setsansfont{Roboto Condensed}
 \setmonofont[Scale=MatchLowercase]{Inconsolata}
 \usepackage[export]{adjustbox}
+\usepackage{xcolor}
 \usepackage{tikz}
+
 \titlegraphic{\tikz[overlay,remember picture]\node at (0,-1.1) {\includegraphics[width=\paperwidth]{BANNER}};}
-\logo{\vspace*{-3mm}\makebox[.99\paperwidth]{\includegraphics[height=.8cm,keepaspectratio]{BOTTOMLEFT}\hfill\includegraphics[height=.8cm,keepaspectratio]{BOTTOMRIGHT}}}
-%\logo{\makebox[.99\paperwidth]{\includegraphics[height=.8cm,keepaspectratio]{BOTTOMLEFT}\hfill\includegraphics[height=.8cm,keepaspectratio]{BOTTOMRIGHT}}}
+\logo{\vspace*{-3mm}\makebox[\paperwidth]{\hspace*{2mm}\includegraphics[height=.8cm,keepaspectratio]{BOTTOMLEFT}\hfill\includegraphics[height=.8cm,keepaspectratio]{BOTTOMRIGHT}}}
 
 \setbeamertemplate{frametitle}{\vspace{.75em}\color{black}\bfseries\insertframetitle}
 \setbeamertemplate{navigation symbols}{}
@@ -26,11 +27,22 @@
 \setbeamercolor{titlelike}{fg=black}
 \setbeamercolor{structure}{fg=black}
 
-\usepackage{listings}
-
 \AtBeginPart{}
 \AtBeginSection{}
 \AtBeginSubsection{}
 \AtBeginSubsubsection{}
 \setlength{\emergencystretch}{0em}
 \setlength{\parskip}{0pt}
+
+\setbeamerfont{myTOC}{series=\bfseries,size=\Large}
+\AtBeginSection[]{\frame{\frametitle{Outline}%
+                  \usebeamerfont{myTOC}\tableofcontents[current]}}
+
+\usepackage{fontawesome}
+\usepackage{color,hyperref}
+\definecolor{blue}{rgb}{.0,.15,.55}
+\hypersetup{colorlinks,breaklinks,
+  linkcolor=black,urlcolor=blue,citecolor=blue}
+\usepackage{url}
+\urlstyle{same}
+
