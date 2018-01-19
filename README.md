@@ -18,7 +18,7 @@ devtools::install_github("mkearney/uslides")
 Requirements
 ------------
 
--   The fonts [Roboto Condensed](https://fonts.google.com/specimen/Roboto+Condensed) and [Inconsolata](https://fonts.google.com/specimen/Inconsolata) must be downloaded from [fonts.google.com](https://fonts.google.com/).
+-   The fonts [Roboto Condensed](https://fonts.google.com/specimen/Roboto+Condensed), [Roboto Bold](https://fonts.google.com/specimen/Roboto), and [Inconsolata](https://fonts.google.com/specimen/Inconsolata) must be downloaded from [fonts.google.com](https://fonts.google.com/).
 -   [\\LaTeX](https://www.latex-project.org/get/) (and the `tex_engine` is `xelatex` if that matters)
 
 Example
