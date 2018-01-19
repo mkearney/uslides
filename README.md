@@ -4,29 +4,54 @@ uslides
 
 Rmarkdown template for pretty university-themed beamer (pdf) presentations.
 
+Installation
+------------
+
+``` r
+## install devtools if it's not already installed
+if (!requireNamespace("devtools", quietly = TRUE)) install.packages("devtools")
+
+## install uslides from github
+devtools::install_github("mkearney/uslides")
+```
+
 Requirements
 ------------
 
 -   The fonts [Roboto Condensed](https://fonts.google.com/specimen/Roboto+Condensed) and [Inconsolata](https://fonts.google.com/specimen/Inconsolata) must be downloaded from [fonts.google.com](https://fonts.google.com/).
--   is used to compile the document; specifically, the `tex_engine` is `xelatex`
+-   [\\LaTeX](https://www.latex-project.org/get/) (and the `tex_engine` is `xelatex` if that matters)
 
 Example
 -------
 
-See an [example Rmd file](tools/readme/example.Rmd) and its [pdf output](tools/readme/example.pdf). Screen shots of the example are inserted below.
+See an [example Rmd file](tools/readme/example.Rmd) and its [pdf output](tools/readme/example.pdf). Screen shots of the example are included below.
 
-### Some of the rmarkdown code.
+### uslides .Rmd template
 
-![](tools/readme/ss4.png)
+<center>
+<img src="tools/readme/ss4.png" width="70%" />
+</center>
+<style>
+img {box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);}
+</style>
+ 
 
-### The title slide.
+### Title slide
 
-![](tools/readme/ss1.png)
+<center>
+<img src="tools/readme/ss1.png" width="70%" />
+</center>
+ 
 
-### A slide with bullet points.
+### Multi-level bullet points
 
-![](tools/readme/ss2.png)
+<center>
+<img src="tools/readme/ss2.png" width="70%" />
+</center>
+ 
 
-### A slide with R code and output.
+### Display R code and output
 
-![](tools/readme/ss3.png)
+<center>
+<img src="tools/readme/ss3.png" width="70%" />
+</center>
