@@ -8,13 +8,24 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## uslides
 
-Rmarkdown template for pretty university-themed beamer presentations.
+Rmarkdown template for pretty university-themed beamer (pdf) presentations.
 
-## Screen shots
+## Requirements
+- The fonts [Roboto Condensed](https://fonts.google.com/specimen/Roboto+Condensed) and [Inconsolata](https://fonts.google.com/specimen/Inconsolata) must be downloaded from [fonts.google.com](https://fonts.google.com/).
+- \LaTeX is used to compile the document; specifically, the `tex_engine` is `xelatex`
+
+## Example
+
+See an [example Rmd file](tools/readme/example.Rmd) and its [pdf output](tools/readme/example.pdf). Screen shots of the example are inserted below.
+
+The title slide.
 
 ![](tools/readme/ss1.png)
 
+A slide with bullet points.
 
 ![](tools/readme/ss2.png)
+
+A slide with R code and output.
 
 ![](tools/readme/ss3.png)

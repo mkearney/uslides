@@ -1,0 +1,131 @@
+---
+title: "Week 2"
+subtitle: "Variables"
+date: "`r Sys.Date()`"
+author: "Michael W. Kearney, PhD"
+institute: |
+  | School of Journalism
+  | Informatics Institute
+  | University of Missouri
+output: 
+  uslides::uslides_document:
+    keep_tex: true
+---
+
+```{r setup, include=FALSE}
+knitr::knit_hooks$set(mysize = function(before, options, envir) {
+  if (before) return(options$size)
+})
+knitr::opts_chunk$set(collapse = TRUE, mysize = TRUE, size = "\\scriptsize")
+knit_print.character = function(x, ...) {
+  sQuote(noquote(x))
+}
+```
+
+# Recap
+
+## Scientific method
+
+- Try to be "objective"
+- Theories should be [falsifiable](http://mikewk.com)
+- Research should be reproducible
+- Knowledge is cumulative and provisional
+
+# Variables
+
+## Variable
+
+- A **constant** is a fixed value that never changes.
+    - e.g., pi, the number 1, etc.
+- A **variable** is a value that differs across observations.
+    - can often be thought of as features or characteristics
+
+## Variable values
+
+- **Values** are measurements (observations) on a given variable
+    - e.g., Tracy's height (variable) is `6'6''` (value)
+    - e.g., Avery's final race position (variable) is `1` (value)
+    - e.g., Cory's skill level in chess (variable) is `master` (value)
+    - e.g., Rory's hometown (variable) is `Kansas City` (value)
+- Different levels of measurement enable different levels of analysis
+
+## Levels of measurement
+- Nominal
+- Ordinal
+- Interval
+- Ratio
+
+## Ratio/numeric/interval
+
+Numeric variables are [or represent] real numbers.
+
+```{r}
+foo <- function(x) {
+  rnorm(x)
+}
+foo(5)
+class(c(1.25, 3.5, 4))
+```
+
+> Technically, if there's a true zero, then it's considered "ratio". Otherwise, it's "interval".
+
+## Ordinal/integer
+
+Ordinal variables are a meaningful sequence of integers.
+
+```{r}
+class(1:3)
+```
+
+## Categorical/character
+
+Categorical variables are used to represent nominal-level categories.
+
+```{r}
+class(c('a', 'b', 'c'))
+```
+
+
+## Defining variables
+
+**Conceptual definition**
+
+- A description of a variable's abstract [or theoretical] meaning.
+
+**Operational definition**
+
+- A description of a variable's practical [or observable] meaning.
+
+
+
+# Example
+
+## Size
+
+Define the word size
+
+- **Size** refers to the dimensions of an object
+
+## Class 1
+
+```{r class1, echo = FALSE}
+x <- seq(0, 1, length.out = 5)
+par(mar = c(3,3,3,3))
+plot(c(x, 1.2), c(x, 1.2), type = 'h', col = 'white', bty = 'n', axes = FALSE,
+     xlab = '', ylab = '', main = '')
+for (i in seq_along(x)) {
+  rect(x, x[i], x + .15, x[i] + .15, col = 'black')
+}
+```
+
+## Class 2
+
+```{r class2, echo = FALSE}
+x <- seq(0, 1, length.out = 3)
+par(mar = c(5,5,5,5))
+plot(c(x, 1.2), c(x, 1.2), type = 'h', col = 'white', bty = 'n', axes = FALSE,
+     xlab = '', ylab = '', main = '')
+for (i in seq_along(x)) {
+  rect(x, x[i], x + .15, x[i] + .15, col = 'black')
+}
+```
