@@ -31,6 +31,7 @@ See an [example Rmd file](tools/readme/example.Rmd) and its [pdf output](tools/r
 <center>
 <img src="tools/readme/ss4.png" width="70%" />
 </center>
+
 <style>
 img {box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);}
 </style>
