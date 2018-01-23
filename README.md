@@ -28,30 +28,27 @@ See an [example Rmd file](tools/readme/example.Rmd) and its [pdf output](tools/r
 
 ### uslides .Rmd template
 
-<center>
+<p align="center">
 <img src="tools/readme/ss4.png" width="70%" />
-</center>
-<style>
-img {box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);}
-</style>
+</p>
  
 
 ### Title slide
 
-<center>
+<p align="center">
 <img src="tools/readme/ss1.png" width="70%" />
-</center>
+</p>
  
 
 ### Multi-level bullet points
 
-<center>
+<p align="center">
 <img src="tools/readme/ss2.png" width="70%" />
-</center>
+</p>
  
 
 ### Display R code and output
 
-<center>
+<p align="center">
 <img src="tools/readme/ss3.png" width="70%" />
-</center>
+</p>
