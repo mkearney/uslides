@@ -11,13 +11,7 @@ output: uslides::uslides_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::knit_hooks$set(mysize = function(before, options, envir) {
-  if (before) return(options$size)
-})
-knitr::opts_chunk$set(collapse = TRUE, mysize = TRUE, size = "\\scriptsize")
-knit_print.character = function(x, ...) {
-  sQuote(noquote(x))
-}
+knitr::opts_chunk$set(collapse = TRUE, size = "\\scriptsize")
 ```
 
 ## Slide title

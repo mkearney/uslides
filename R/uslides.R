@@ -27,6 +27,13 @@ uslides_document <- function(toc = FALSE,
   doc_prebody <- file.path(
     template_path, "resources", "uslides_document_beforebody.tex"
   )
+  knitr::knit_hooks$set(mysize = function(before, options, envir) {
+    if (before) return(options$size)
+  })
+  knitr::opts_chunk$set(collapse = TRUE, mysize = TRUE, size = "\\scriptsize")
+  knit_print.character = function(x, ...) {
+    sQuote(noquote(x))
+  }
   ## call the base html_document function
   rmarkdown::beamer_presentation(
     toc = toc,
