@@ -192,3 +192,105 @@ readline_ <- function(...) {
     file.path(normalizePath("~"), ".Renviron")
   }
 }
+
+
+
+post_processor <- function(metadata, input_file, output_file, clean,
+                           verbose) {
+  ## Get lines from output file
+  con <- file(output_file)
+  lines <- readLines(con)
+  close(con)
+
+  ## Change <li class="fragment"> elements, add a "next" class.
+  ## Shower needs this for incremental lists
+  lines <- sub(
+    "<li class=\"fragment\"",
+    "<li class=\"fragment next\"",
+    lines,
+    fixed = TRUE
+  )
+
+  ## Everything should be H2 for shower
+  lines <- sub(
+    "^<h1>(.*)</h1>$",
+    "<h2>\\1</h2>",
+    lines,
+    perl = TRUE
+  )
+
+  ## Title slides are H2, too, but have a special class
+  lines <- sub(
+    "(class=\"titleslide slide level1\">)<h1>(.*)</h1>",
+    "\\1<h2 class=\"shout\">\\2</h2>",
+    lines,
+    perl = TRUE
+  )
+
+  ## No embedded sections, please
+  lines <- sub("^<section><section", "<section", lines)
+  lines <- sub("^</section></section>", "</section>", lines)
+
+  ## Write it out
+  writeLines(lines, output_file)
+
+  output_file
+}
+
+#' @export
+uslides_html <- function() {
+  fig_caption <- TRUE
+  highlight <- "pygments"
+  fig_width <- 8
+  fig_height <- 4.9
+  fig_retina <- 2
+  fig_caption <- FALSE
+  keep_md <- FALSE
+  default_template <- system.file(
+    "rmarkdown/templates/uslides_document/resources/default.html",
+    package = "uslides"
+  )
+  template <- rmarkdown::pandoc_path_arg(default_template)
+  css <- system.file(
+    "rmarkdown/templates/uslides_document/resources/screen-16x10.css",
+    package = "uslides"
+  )
+  shower_path <- system.file(package = "uslides")
+  shower_path <- paste0("--variable=shower-url:",
+                        rmarkdown::pandoc_path_arg(shower_path))
+  css <- rmarkdown::pandoc_path_arg(css)
+  highlight <- rmarkdown::pandoc_highlight_args(highlight)
+  theme1 <- "--variable=theme:ribbon"
+  theme2 <- system.file("node_modules/shower-ribbon", package = "uslides")
+  #system.file("node_modules/shower-", package = "uslides")
+  #list.files(system.file("node_modules", package = "uslides"))
+  theme2 <- paste0("--variable=shower-theme-url:", theme2)
+  args <- c("--template", template,
+            "--slide-level", "2",
+            "--variable=ratio:16x10",
+            "--css", css,
+            theme1, theme2,
+            highlight,
+            shower_path)
+  rmarkdown::output_format(
+    knitr = rmarkdown::knitr_options_html(
+      fig_width, fig_height, fig_retina, keep_md),
+    pandoc = rmarkdown::pandoc_options(
+      to = "revealjs",
+      from = rmarkdown::rmarkdown_format(
+        if (fig_caption) "" else "-implicit_figures"),
+      args = args
+    ),
+    keep_md = keep_md,
+    clean_supporting = TRUE,
+    pre_processor = NULL,
+    post_processor = post_processor,
+    base_format = rmarkdown::html_document_base(
+      smart = TRUE,
+      lib_dir = NULL,
+      self_contained = TRUE,
+      mathjax = NULL,
+      pandoc_args = NULL
+    )
+  )
+}
