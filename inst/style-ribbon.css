@@ -1,15 +1,31 @@
 /* overrides for the ribbon style */
 
 /* Both input and output */
+.slide {
+    padding: 53px 80px 0;
+}
+
+.slide li, li {
+  line-height: 1.1;
+}
+
+.slide ol li::before, .slide ul li::before, .slide ul > li::before {
+    color: #000;
+}
+
+.slide h2 {
+    font: bold 43px/1 'Roboto Condensed', sans-serif;
+}
 
 .slide pre code {
     display: block;
     line-height: 1.2;
     background: #eee;
     color: #333;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    font-size: 80%;
+    margin: 1px 1px;
+    font-size: 70%;
+    width:calc(75% + 100px + 100px);
+    padding:1px 0 1px 30px;
 }
 
 /* Code input, we need to undo unwanted changes here */
@@ -18,5 +34,6 @@
     background: #fff;
     padding-top: 0px;
     padding-bottom: 0px;
+    magin: 0 0;
 }
 
