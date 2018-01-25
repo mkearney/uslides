@@ -198,7 +198,7 @@ readline_ <- function(...) {
 
 #' @export
 uslides_html <- function(theme = c("ribbon", "material"),
-                         ratio = c("4x3", "16x10"),
+                         ratio = "16x10",
                          katex = TRUE,
                          incremental = FALSE,
                          fig_width = 8,
