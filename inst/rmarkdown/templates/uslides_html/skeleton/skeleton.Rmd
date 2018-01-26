@@ -7,9 +7,7 @@ output: uslides::uslides_html
 ```{r setup, include=FALSE}
 ```
 
-## Shower Presentations with R Markdown { .white }
-
-<img src="`r scifi`" class="cover">
+## uslides HTML presentation with R Markdown { .white }
 
 <p class="white">
 Get it from GitHub: https://github.com/mkearney/uslides.
@@ -66,13 +64,13 @@ How did I get into this mess? I really don't know how. We seem to be made
 to suffer. It's our lot in life. I've got to rest before I fall apart. My
 joints are almost frozen. What a desolate place this is. Where are you
 going?
-<img src="`r swjpg`" class="one-col-image">
+
 </p>
 
 ## Two column layout, image and text
 
 <p class="double">
-<img src="`r swjpg`" class="one-col-image">
+
 How did I get into this mess? I really don't know how. We seem to be made
 to suffer. It's our lot in life. I've got to rest before I fall apart. My
 joints are almost frozen. What a desolate place this is. Where are you
@@ -138,7 +136,6 @@ summary(cars)
 
 ## Pictures { .white }
 
-<img src="`r scifi`" class="cover">
 
 <p class="white">
 And text on top of them.
