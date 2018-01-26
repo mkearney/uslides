@@ -24,31 +24,31 @@ Requirements
 Example
 -------
 
-See an [example Rmd file](tools/readme/example.Rmd) and its [pdf output](tools/readme/example.pdf). Screen shots of the example are included below.
-
+<!-- See an [example Rmd file](tools/readme/example.Rmd) and its [pdf output](tools/readme/example.pdf). Screen shots of the example are included below. -->
 ### uslides .Rmd template
 
 <p align="center">
-<img src="tools/readme/ss4.png" width="70%" />
+<img src="tools/readme/code.png" width="70%" />
 </p>
+ 
+
+### Easily navigate slides
+
+<p align="center">
+<img src="tools/readme/html1.png" width="70%" />
+</p>
+<!-- <p align="center"><img src="tools/readme/ss1.png" width="70%" /></p> -->
  
 
 ### Title slide
 
 <p align="center">
-<img src="tools/readme/ss1.png" width="70%" />
-</p>
- 
-
-### Multi-level bullet points
-
-<p align="center">
-<img src="tools/readme/ss2.png" width="70%" />
+<img src="tools/readme/html2.png" width="70%" />
 </p>
  
 
 ### Display R code and output
 
 <p align="center">
-<img src="tools/readme/ss3.png" width="70%" />
+<img src="tools/readme/html3.png" width="70%" />
 </p>
