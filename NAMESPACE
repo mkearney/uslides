@@ -3,4 +3,3 @@
 export(add_logos)
 export(uslides_html)
 export(uslides_pdf)
-importFrom(utils,installed.packages)
