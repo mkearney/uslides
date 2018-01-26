@@ -1,37 +1,43 @@
 
-
+#' HTML slideshow presentation
+#'
+#' Renders rmarkdown as an HTML slideshow.
+#'
+#' @param incremental Logical indicating whether to render bullet points incrementally. Defaults to FALSE. To reverse-order, precede item with `>`
+#' @param fig_width Default figure width, in inches.
+#' @param fig_height Default figure height, in inches.
+#' @param fig_caption Logical indicating whether to render figure captions.
+#' @param self_contained Logical indicating whether to package presentation as single html file.
+#' @param highlight Highlight style, if "default" then "haddock" is used.
+#' @param css Optional, additional css file(s) to include
+#' @param includes Optional, additional content to include.
+#' @param keep_md Logical indicating whether to keep .md version of file.
+#' @param lib_dir If not self contained, name for directory containing presentation files. If NULL (default) then "_files" is added to document name.
+#' @param pandoc_args Optional, additional args to pass on to pandoc.
+#'
 #' @export
-uslides_html <- function(katex = TRUE,
-                         incremental = FALSE,
+uslides_html <- function(incremental = FALSE,
                          fig_width = 8,
-                         fig_height = 4.9,
-                         fig_retina = 2,
+                         fig_height = 5,
                          fig_caption = FALSE,
-                         smart = TRUE,
                          self_contained = FALSE,
                          highlight = "default",
-                         template = "default",
                          css = NULL,
                          includes = NULL,
                          keep_md = FALSE,
                          lib_dir = NULL,
                          pandoc_args = NULL) {
+  katex = TRUE
+  fig_retina = 2
+  template = "default"
+  smart = TRUE
+  theme = "ribbon"
+  ratio = "16x10"
 
-  theme <- "ribbon"
-  ratio <- "16x10"
+  css <- add_logos_html(css)
 
-  #template_path <- system.file(
-  #  "rmarkdown/templates/uslides_html/resources", package = "uslides"
-  #)
-  ## set locations of doc pre/suf fixes
-  #doc_css <- file.path(
-  #  template_path, "resources", "uslides_html_style.css"
-  #)
-  #doc_prefix <- add_logos(doc_prefix)
-
-  theme_url <- find_theme(theme)
-
-  #ratio <- match.arg(ratio)
+  theme_url <-   system.file(
+    "rmarkdown/templates/uslides_html/resources", package = "uslides")
 
   ## put common pandoc options here
   args <- c()
@@ -107,7 +113,8 @@ uslides_html <- function(katex = TRUE,
 
     ## highlight
     args <- c(args,
-              rmarkdown::pandoc_highlight_args(highlight, default = "pygments"))
+              rmarkdown::pandoc_highlight_args(
+                highlight, default = "haddock"))
 
     ## return additional args
     args
@@ -186,29 +193,116 @@ uslides_html <- function(katex = TRUE,
 
 
 
-find_theme <- function(theme) {
+add_logos_html <- function(css = NULL) {
+  if (is.null(css)) {
+    css <- system.file(
+      "rmarkdown/templates/uslides_html/resources/style-ribbon0.css",
+      package = "uslides"
+    )
+  }
+  con <- file(css)
+  x <- readLines(con, warn = FALSE)
+  close(con)
 
-  ## builtin-themes
-  if (theme %in% c("ribbon", "material", "earl2016")) {
-    find_builtin_theme(theme)
+  ## BOTTOM LEFT LOGO
+  bl <- Sys.getenv("USLIDES_BOTTOMLEFT")
+  ## if not set then ask and set
+  if (identical(bl, "")) {
+    if (interactive()) {
+      ## if env var not set, then ask user and set it for future sessions
+      bl <- readline_("What is the full path for BOTTOMLEFT image?")
+      if (nchar(bl) > 0L) {
+        cat(
+          paste0("USLIDES_BOTTOMLEFT=", bl),
+          file = .Renviron(),
+          append = TRUE, fill = TRUE
+        )
+      }
+    } else {
+      ## if not interactive then guess the path
+      bl <- path.expand("~/Dropbox/uslidelogos/bl.jpg")
+    }
+  }
 
+  ## BOTTOM RIGHT LOGO
+  br <- Sys.getenv("USLIDES_BOTTOMRIGHT")
+  if (identical(br, "")) {
+    if (interactive()) {
+      br <- readline_("What is the full path for BOTTOMRIGHT image?")
+      if (nchar(br) > 0L) {
+        cat(
+          paste0("USLIDES_BOTTOMRIGHT=", br),
+          file = .Renviron(),
+          append = TRUE, fill = TRUE
+        )
+      }
+    } else {
+      ## if not interactive then guess the path
+      br <- path.expand("~/Dropbox/uslidelogos/br.jpg")
+    }
+  }
+  if (file.exists(bl) || file.exists(br)) {
+    x <- gsub("BOTTOMLEFT", bl, x)
+    x <- gsub("BOTTOMRIGHT", br, x)
   } else {
-    find_theme_package(theme)
-  }
-}
-
-
-find_builtin_theme <- function(theme) {
-  system.file("rmarkdown/templates/uslides_html/resources", package = "uslides")
-}
-
-#' @importFrom utils installed.packages
-find_theme_package <- function(theme) {
-  theme_pkg <- paste0("rmdshower.", theme)
-  if (!theme_pkg %in% rownames(installed.packages())) {
-    stop("Cannot find theme package ", theme_pkg)
+    x <- grep("BOTTOMLEFT", x, invert = TRUE, value = TRUE)
+    x <- grep("BOTTOMRIGHT", x, invert = TRUE, value = TRUE)
   }
 
-  system.file(package = theme_pkg)
-}
+  ## BOTTOM TITLE BANNER
+  bn <- Sys.getenv("USLIDES_BANNER")
+  if (identical(bn, "")) {
+    if (interactive()) {
+      bn <- readline_("What is the full path for BANNER image?")
+      if (nchar(bn) > 0L) {
+        cat(
+          paste0("USLIDES_BANNER=", bn),
+          file = .Renviron(),
+          append = TRUE, fill = TRUE
+        )
+      }
+    } else {
+      ## if not interactive then guess the path
+      bn <- path.expand("~/Dropbox/uslidelogos/bn.jpg")
+    }
+  }
+  if (file.exists(bn)) {
+    x <- gsub("BANNER", bn, x)
+  } else {
+    x <- grep("BANNER", x, invert = TRUE, value = TRUE)
+  }
 
+  ## BACKGROUND WATERMARK
+  bg <- Sys.getenv("USLIDES_BACKGROUND")
+  if (identical(bg, "")) {
+    if (interactive()) {
+      ## if env var not set, then ask user and set it for future sessions
+      bg <- readline_("What is the full path for BACKGROUND image?")
+      if (nchar(bg) > 0L) {
+        cat(
+          paste0("USLIDES_BACKGROUND=", bg),
+          file = .Renviron(),
+          append = TRUE, fill = TRUE
+        )
+      }
+    } else {
+      ## if not interactive then guess
+      bg <- path.expand("~/Dropbox/uslidelogos/bg.jpg")
+    }
+  }
+  if (file.exists(bg)) {
+    x <- gsub("BACKGROUND", bg, x)
+  } else {
+    x <- grep("BACKGROUND", x, invert = TRUE, value = TRUE)
+  }
+
+  ## save as temp file
+  ##tmp <- tempfile(fileext = ".tex")
+  out <- system.file(
+    "rmarkdown/templates/uslides_html/resources",
+    package = "uslides")
+  out <- file.path(out, "style-ribbon.css")
+  writeLines(x, out)
+  ##invisible(tmp)
+  NULL
+}
