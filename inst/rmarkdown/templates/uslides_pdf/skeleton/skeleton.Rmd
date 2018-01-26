@@ -7,7 +7,7 @@ institute: |
   | School of Journalism
   | Informatics Institute
   | University of Missouri
-output: uslides::uslides_document
+output: uslides::pdf
 ---
 
 ```{r setup, include=FALSE}
