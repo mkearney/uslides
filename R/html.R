@@ -17,8 +17,8 @@
 #'
 #' @export
 uslides_html <- function(incremental = FALSE,
-                         fig_width = 8,
-                         fig_height = 5,
+                         fig_width = 7.50,
+                         fig_height = 4.75,
                          fig_caption = FALSE,
                          self_contained = FALSE,
                          highlight = "default",
