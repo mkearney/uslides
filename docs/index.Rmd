@@ -1,6 +1,13 @@
 ---
-title: "uslides HTML presentation"
+title: "uslides"
+#subtitle: "PDF presentation"
+subtitle: "HTML presentation"
+date: "`r Sys.Date()`"
 author: https://github.com/mkearney/uslides
+institute: |
+  | School of Journalism
+  | Informatics Institute
+  | University of Missouri
 output: uslides::uslides_html
 #output: uslides::uslides_pdf
 ---
