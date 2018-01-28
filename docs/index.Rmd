@@ -1,7 +1,6 @@
 ---
 title: "uslides"
-#subtitle: "PDF presentation"
-subtitle: "HTML presentation"
+subtitle: "Example presentation"
 date: "`r Sys.Date()`"
 author: https://github.com/mkearney/uslides
 institute: |
@@ -11,6 +10,10 @@ institute: |
 output: uslides::uslides_html
 #output: uslides::uslides_pdf
 ---
+
+```{r, setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE, size = "\\scriptsize")
+```
 
 ## uslides HTML presentation with R Markdown { .white }
 
@@ -72,18 +75,17 @@ It supports both inline: \(y = x / 2\) and displayed formulas:
 
 > Learning more about programming is a long-term investment: it won’t pay off immediately, but in the long term it will allow you to solve new problems more quickly, and let you reuse your insights from previous problems in new scenarios.
 
-**Hadley Wickham? **
+**-Hadley Wickham**
 
 ## Slide with R Code and Output
 
 ```{r, include=FALSE}
 if (!requireNamespace("rtweet", quietly = TRUE)) install.packages("rtweet")
-options(tibble.width = 120)
 ```
 - Some text
-```{r, cache=TRUE}
-hw <- rtweet::search_tweets("rstats")
-hw
+```{r, cache=FALSE}
+#hw <- rtweet::search_tweets("rstats")
+mtcars
 ```
 
 ## Tables

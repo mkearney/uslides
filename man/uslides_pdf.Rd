@@ -6,7 +6,7 @@
 \usage{
 uslides_pdf(toc = FALSE, incremental = FALSE, fig_width = 9,
   fig_height = 6, fig_crop = TRUE, fig_caption = TRUE, keep_tex = FALSE,
-  pandoc_args = NULL, highlight = "tango", latex_engine = "xelatex")
+  pandoc_args = NULL, highlight = "haddock", latex_engine = "xelatex")
 }
 \arguments{
 \item{toc}{\code{TRUE} to include a table of contents in the output (only

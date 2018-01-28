@@ -11,7 +11,7 @@ uslides_pdf <- function(toc = FALSE,
                         fig_caption = TRUE,
                         keep_tex = FALSE,
                         pandoc_args = NULL,
-                        highlight = "tango",
+                        highlight = "haddock",
                         latex_engine = "xelatex") {
   template_path <- system.file(
     "rmarkdown", "templates", "uslides_pdf", package = "uslides"
@@ -27,13 +27,12 @@ uslides_pdf <- function(toc = FALSE,
   doc_prebody <- file.path(
     template_path, "resources", "uslides_pdf_beforebody.tex"
   )
-  knitr::knit_hooks$set(mysize = function(before, options, envir) {
-    if (before) return(options$size)
-  })
+  knitr::knit_hooks$set(mysize = function(before, options, envir) if (before) return(options$size))
   knitr::opts_chunk$set(collapse = TRUE, mysize = TRUE, size = "\\scriptsize")
-  knit_print.character = function(x, ...) {
-    sQuote(noquote(x))
-  }
+  #rm_dbl_quotes <- function(x) gsub("\"", "'", x)
+  #knit_print.character = function(x, ...) {
+  #  sQuote(noquote(x))
+  #}
   ## call the base html_document function
   rmarkdown::beamer_presentation(
     toc = toc,
@@ -56,6 +55,8 @@ uslides_pdf <- function(toc = FALSE,
     pandoc_args = pandoc_args
   )
 }
+
+
 
 #' add_logos
 #'
