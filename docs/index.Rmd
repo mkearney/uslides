@@ -1,0 +1,112 @@
+---
+title: "uslides HTML presentation"
+author: https://github.com/mkearney/uslides
+output: 
+  uslides::uslides_html:
+    self_contained: true
+#output: uslides::uslides_pdf
+---
+
+## uslides HTML presentation with R Markdown { .white }
+
+Get it from GitHub: https://github.com/mkearney/uslides.
+
+## R Markdown
+
+This is an R Markdown presentation. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document.
+
+## Shower
+
+These slides use a template from the [shower](https://github.com/shower/shower) presentation system. Notable features:
+
+1. Works in all modern browsers
+1. Presentation fully keyboard accessible
+1. Multiple themes available
+1. Printable to PDF
+
+<p class="note"> Shower ['ʃəuə] noun. A person or thing that shows.</p>
+
+## Two column layout
+
+<p class="double">
+What is it? Your fathers lightsaber. This is the weapon of a Jedi Knight. Not as clumsy or as random as a blaster. An elegant weapon for a more civilized time. For over a thousand generations the Jedi Knights were the guardians of peace and justice in the Old Republic. Before the dark times, before the Empire. How did my father die? A young Jedi named Darth Vader, who was a pupil of mine until he turned to evil, helped the Empire hunt down and destroy the Jedi Knights.
+</p>
+
+
+## Two column layout, independent columns
+
+<div class="double">
+<p class="double-flow">
+How did I get into this mess? I really don't know how. We seem to be made to suffer.
+</p><p class="double-flow">
+It's our lot in life. I've got to rest before I fall apart.
+</p>
+</div>
+
+## Lists
+
+1. Simple lists are marked with bullets
+1. Ordered lists begin with a number
+1. You can even nest lists one inside another
+    * Or mix their types
+    * But do not go too far
+    * Otherwise audience will be bored
+1. Look, seven rows exactly!
+
+## Formulas
+
+Formulas are rendered by KaTeX, https://github.com/Khan/KaTeX
+
+It supports both inline: \(y = x / 2\) and displayed formulas:
+
+\[ x_{1,2} = \frac{- b \pm \sqrt{b^2 - 4ac}}{2a} \]
+
+## Slide with quote
+
+> Learning more about programming is a long-term investment: it won’t pay off immediately, but in the long term it will allow you to solve new problems more quickly, and let you reuse your insights from previous problems in new scenarios.
+
+**Hadley Wickham? **
+
+## Slide with R Code and Output
+
+```{r, include=FALSE}
+if (!requireNamespace("rtweet", quietly = TRUE)) install.packages("rtweet")
+options(tibble.width = 120)
+```
+- Some text
+```{r, cache=TRUE}
+hw <- rtweet::search_tweets("rstats")
+hw
+```
+
+## Tables
+
+|                   |  mpg  |  cyl  |  disp  |  hp  |
+|:-----------------:|:-----:|:-----:|:------:|:----:|
+|     Mazda RX4     | 21    |   6   |  160   | 110  |
+|   Mazda RX4 Wag   | 21    |   6   |  160   | 110  |
+|    Datsun 710     | 22.8  |   4   |  108   |  93  |
+|   Hornet 4 Drive  | 21.4  |   6   |  258   | 110  |
+| Hornet Sportabout | 18.7  |   8   |  360.0 | 175  |
+|       Valiant     | 18.1  |   6   |  225.0 | 105  |
+|      Duster 360   | 14.3  |   8   |  360.0 | 245  |
+
+# Title slide
+
+## Lists item by item
+
+> 1. Lets you reveal list items one by one
+> 2. To keep some key points
+> 3. In secret from audience
+> 4. But it will work only once
+> 5. Nobody wants to see the same joke twice
+
+## Slide with Plot
+
+```{r, echo=FALSE, dev='jpeg'}
+par(mar = c(5, 4, 1, 2) + 0.1)
+pairs(iris[1:4], pch = 21,
+      bg = c("red", "green3", "blue")[unclass(iris$Species)])
+```

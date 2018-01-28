@@ -4,7 +4,7 @@
 \alias{uslides_html}
 \title{HTML slideshow presentation}
 \usage{
-uslides_html(incremental = FALSE, fig_width = 8, fig_height = 5,
+uslides_html(incremental = FALSE, fig_width = 7.5, fig_height = 4.75,
   fig_caption = FALSE, self_contained = FALSE, highlight = "default",
   css = NULL, includes = NULL, keep_md = FALSE, lib_dir = NULL,
   pandoc_args = NULL)
