@@ -24,7 +24,7 @@ Requirements
 Example
 -------
 
-See an [example Rmd file](tools/readme/example.Rmd), [pdf](tools/readme/example.pdf), and [html](tools/readme/example.html) output files. Screen shots of the example are included below.
+See example [HTML](https://mkearney.github.io/uslides) and [PDF](https://mkearney.github.io/uslides/index.pdf) presentations. Screen shots of the example are included below.
 
 ### uslides .Rmd template
 
