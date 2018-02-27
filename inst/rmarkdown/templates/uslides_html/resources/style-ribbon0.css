@@ -4,7 +4,7 @@
                     url(BOTTOMRIGHT);
   background-repeat: no-repeat;
   background-position: bottom left, bottom right;
-  background-size: auto 2.3em, auto 2.3em;
+  background-size: auto 2em, auto 2em;
   padding: 1.7em 3.25em 0;
   font-family: 'Roboto Condensed', 'Helvetica Neue', 'Roboto', sans-serif;
   font-size: 1.2em;
@@ -146,7 +146,7 @@ header.caption p {
   background: transparent;
   color: #333;
   margin: .05em .05em;
-  font-size: 80%;
+  font-size: 75%;
   width: calc(75% + 3.5em + 3.5em);
   padding: .05em 0 .05em 1em;
 }
