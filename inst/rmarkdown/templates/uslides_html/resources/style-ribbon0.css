@@ -5,7 +5,7 @@
   background-repeat: no-repeat;
   background-position: bottom left, bottom right;
   background-size: auto 1.9em, auto 1.9em;
-  padding: 1.7em 3.25em 0;
+  padding: 1.25em 3.25em 0;
   font-family: 'Roboto Condensed', 'Helvetica Neue', 'Roboto', sans-serif;
   font-size: 1.15em;
   color: #24292E;
@@ -138,15 +138,18 @@ header.caption p {
   font-family: 'Roboto', 'Helvetica Neue', 'Roboto', sans-serif;
   font-weight: 700;
   font-size: 1.7em;
+  margin-bottom: 1em;
 }
-
+.slide pre {
+ margin-bottom: .15em;
+}
 .slide pre code {
   display: block;
   line-height: 1.2;
   background: transparent;
   color: #333;
   margin: .05em .05em;
-  font-size: 75%;
+  font-size: 70%;
   width: calc(75% + 3.5em + 3.5em);
   padding: .05em 0 .05em 1em;
 }
@@ -157,15 +160,13 @@ div.sourceCode {
   overflow-x: scroll;
   overflow-y: scroll;
   max-height: 65%;
+  margin-top: .4em;
 }
 
 .slide pre.sourceCode code {
   border-radius: 5px;
   padding-top: .4em;
   margin: 0 .2em;
-}
-.slide pre code {
-   line-height: 1.2;
 }
 .slide p {
   margin-bottom: .075em;
