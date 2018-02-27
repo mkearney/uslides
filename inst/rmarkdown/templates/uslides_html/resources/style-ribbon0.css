@@ -141,7 +141,7 @@ header.caption p {
   margin-bottom: 1em;
 }
 .slide pre {
- margin-bottom: .15em;
+  margin-bottom: .25em;
 }
 .slide pre code {
   display: block;
