@@ -4,7 +4,7 @@
                     url(BOTTOMRIGHT);
   background-repeat: no-repeat;
   background-position: bottom left, bottom right;
-  background-size: auto 2em, auto 2em;
+  background-size: auto 1.9em, auto 1.9em;
   padding: 1.7em 3.25em 0;
   font-family: 'Roboto Condensed', 'Helvetica Neue', 'Roboto', sans-serif;
   font-size: 1.15em;
@@ -162,7 +162,6 @@ div.sourceCode {
 .slide pre.sourceCode code {
   border-radius: 5px;
   padding-top: .4em;
-  padding-bottom: .4em;
   margin: 0 .2em;
 }
 .slide pre code {
